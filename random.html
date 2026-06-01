@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nexify | Next-Gen Tech Solutions</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefefe;
+      color: #1e1f2a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --primary-light: #818cf8;
+      --secondary: #0f172a;
+      --gray-light: #f1f5f9;
+      --gray-border: #e2e8f0;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --white: #ffffff;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+      --radius-card: 1.5rem;
+      --radius-btn: 2rem;
+      --transition: all 0.25s ease;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header & navigation */
+    .header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(4px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--gray-border);
+      width: 100%;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      gap: 2rem;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #4f46e5, #818cf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--primary-dark);
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+
+    /* CTA button style */
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 0.7rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 6rem 0 6rem 0;
+      background: linear-gradient(120deg, #f8fafc 0%, #ffffff 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: #e0e7ff;
+      color: var(--primary-dark);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #0f172a, #4f46e5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 90%;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      flex: 0.8;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* section titles */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      letter-spacing: -0.01em;
+    }
+    .section-title span {
+      color: var(--primary);
+    }
+
+    /* Services cards */
+    .services {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 2rem 1.8rem;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-border);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary-light);
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      color: var(--text-muted);
+    }
+
+    /* stats section (inline) */
+    .stats-bar {
+      background: linear-gradient(145deg, #f1f5f9, #ffffff);
+      padding: 3rem 0;
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .stats-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-block h4 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* about section */
+    .about {
+      padding: 5rem 0;
+    }
+    .about-inner {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .about-feature i {
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+    .about-image {
+      flex: 1;
+      background: linear-gradient(145deg, #eef2ff, #ffffff);
+      border-radius: var(--radius-card);
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--gray-border);
+    }
+    .about-image i {
+      font-size: 8rem;
+      color: var(--primary-light);
+      opacity: 0.8;
+    }
+
+    /* contact form */
+    .contact {
+      background: var(--gray-light);
+      padding: 5rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: var(--white);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      margin-bottom: 1.8rem;
+      color: var(--text-muted);
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .contact-detail i {
+      font-size: 1.5rem;
+      color: var(--primary);
+      width: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--gray-border);
+      border-radius: 1rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    }
+    button[type="submit"] {
+      width: 100%;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    button[type="submit"]:hover {
+      background: var(--primary-dark);
+    }
+
+    /* footer */
+    .footer {
+      background: #0b1120;
+      color: #cbd5e1;
+      padding: 3rem 0 2rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #a5b4fc, #c7d2fe);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+    }
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .social-icons i {
+      font-size: 1.3rem;
+      margin-left: 1rem;
+      transition: 0.2s;
+      cursor: pointer;
+      color: #cbd5e1;
+    }
+    .social-icons i:hover {
+      color: var(--primary-light);
+    }
+    .copyright {
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* responsive design */
+    @media (max-width: 900px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .hero-stats {
+        margin-top: 1rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        flex-wrap: wrap;
+      }
+      .menu-btn {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 20px 30px -10px rgba(0,0,0,0.05);
+        border-bottom: 1px solid var(--gray-border);
+        gap: 1.5rem;
+        z-index: 99;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .navbar {
+        position: relative;
+      }
+      .hero-grid {
+        flex-direction: column;
+      }
+      .hero-content p {
+        max-width: 100%;
+      }
+      .stats-flex {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">NEXIFY<span>.</span></a>
+        <button class="menu-btn" id="menuToggle" aria-label="menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" class="btn-outline" style="padding: 0.5rem 1.2rem;">Get in touch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge"><i class="fas fa-microchip"></i> Next‑gen innovation</div>
+          <h1>Empowering business <br> through intelligent tech</h1>
+          <p>Build smarter, scale faster with cutting-edge AI, cloud & cybersecurity solutions trusted by industry leaders.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Start a project →</a>
+            <a href="#services" class="btn-outline">Explore solutions</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><h3>250+</h3><p>Enterprise clients</p></div>
+          <div class="stat-item"><h3>98%</h3><p>Client retention</p></div>
+          <div class="stat-item"><h3>45+</h3><p>Global experts</p></div>
+          <div class="stat-item"><h3>24/7</h3><p>Support SLA</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services / Solutions -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2 class="section-title">Core <span>tech solutions</span></h2>
+        <div class="cards-grid">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-brain"></i></div>
+            <h3>AI & Machine Learning</h3>
+            <p>Custom predictive models, LLM integration, and intelligent automation for data-driven decisions.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+            <h3>Cloud Infrastructure</h3>
+            <p>AWS, Azure, GCP – scalable cloud architecture, migration & DevOps pipelines.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-shield-haltered"></i></div>
+            <h3>Cybersecurity</h3>
+            <p>End-to-end security audits, zero-trust frameworks, and threat intelligence.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Custom Software</h3>
+            <p>Enterprise-grade web & mobile apps built with modern stacks and agile delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- stats affirmation bar -->
+    <div class="stats-bar">
+      <div class="container stats-flex">
+        <div class="stat-block"><h4>10+</h4><p>Years of excellence</p></div>
+        <div class="stat-block"><h4>500+</h4><p>Projects delivered</p></div>
+        <div class="stat-block"><h4>99.9%</h4><p>Uptime reliability</p></div>
+        <div class="stat-block"><h4>4.9★</h4><p>Client rating</p></div>
+      </div>
+    </div>
+
+    <!-- About + mission -->
+    <section id="about" class="about">
+      <div class="container about-inner">
+        <div class="about-text">
+          <h2>Where vision meets <span style="color: var(--primary);">execution</span></h2>
+          <p>Nexify was born to bridge the gap between ambitious ideas and scalable tech. We combine deep engineering expertise with a human‑centric approach, helping startups and Fortune 500s alike reinvent their digital landscape.</p>
+          <div class="about-feature"><i class="fas fa-rocket"></i> <span>Agile & future-ready development</span></div>
+          <div class="about-feature"><i class="fas fa-users"></i> <span>Dedicated teams & staff augmentation</span></div>
+          <div class="about-feature"><i class="fas fa-chart-line"></i> <span>Data-driven growth strategies</span></div>
+          <a href="#contact" class="btn-primary" style="margin-top: 1rem;">Partner with us →</a>
+        </div>
+        <div class="about-image">
+          <i class="fas fa-chalkboard-user"></i>
+          <p style="margin-top: 1rem; font-weight: 500;">Global innovation hub</p>
+          <small style="color: var(--text-muted)">Silicon Valley · London · Singapore</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section + Form -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Let’s build <span>the future</span> together</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Get in touch</h3>
+            <p>Have a project in mind? Our team is ready to turn ideas into high-impact digital products.</p>
+            <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> <span>123 Innovation Drive, SF, CA 94103</span></div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i> <span>hello@nexify.tech</span></div>
+            <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+1 (415) 867-5309</span></div>
+            <div style="margin-top: 2rem;">
+              <i class="fab fa-twitter" style="margin-right: 1rem; font-size: 1.4rem; color: var(--primary);"></i>
+              <i class="fab fa-linkedin" style="margin-right: 1rem; font-size: 1.4rem; color: var(--primary);"></i>
+              <i class="fab fa-github" style="font-size: 1.4rem; color: var(--primary);"></i>
+            </div>
+          </div>
+          <div>
+            <form id="contactForm" action="#" method="post">
+              <div class="form-group">
+                <input type="text" placeholder="Full name" id="name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Email address" id="email" required>
+              </div>
+              <div class="form-group">
+                <textarea rows="4" placeholder="Tell us about your idea..." id="message" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary">Send message <i class="fas fa-arrow-right"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">NEXIFY</div>
+          <p style="margin-top: 0.8rem; max-width: 240px;">Pioneering next‑generation digital ecosystems.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="social-icons">
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-linkedin-in"></i>
+          <i class="fab fa-github"></i>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 Nexify Technologies — Innovate without limits.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+        // change icon style optionally
+        const icon = menuBtn.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // close mobile menu on link click
+      const navItems = navLinks.querySelectorAll('a');
+      navItems.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          const icon = menuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        });
+      });
+    }
+    
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#" || href === "") return;
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    
+    // Contact form handling (demo)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name')?.value.trim();
+        const email = document.getElementById('email')?.value.trim();
+        const message = document.getElementById('message')?.value.trim();
+        if (!name || !email || !message) {
+          alert("Please fill all fields before sending.");
+          return;
+        }
+        if (!email.includes('@') || !email.includes('.')) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+        // Show success feedback
+        alert(`Thanks ${name}! Our team will get back to you within 24 hours.`);
+        contactForm.reset();
+      });
+    }
+
+    // Extra: subtle active highlight on scroll for navbar (optional)
+    const sections = document.querySelectorAll("section[id]");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      const scrollPos = window.scrollY + 150;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+      const navLinksItems = document.querySelectorAll(".nav-links a");
+      navLinksItems.forEach(link => {
+        link.classList.remove("active-link");
+        const href = link.getAttribute("href")?.substring(1);
+        if (href === current && current !== "") {
+          link.style.color = "#4f46e5";
+          link.style.fontWeight = "600";
+        } else if (link.getAttribute("href") !== "#") {
+          link.style.color = "";
+          link.style.fontWeight = "500";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
