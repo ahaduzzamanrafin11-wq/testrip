@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Survey Form</title>
+  </head>
+
+  <body >
+     <h1 id="title">Helios Survey Form</h1>
+     <p id="description">
+      This is a mock survey for freecodecamp certification project</p>
+      <form id="survey-form">
+         <label for="name" id="name-label">Name:</label>
+         <input type="text" id="name" required placeholder="e.g., John Doe">
+         <label for="email" id="email-label">Email:</label>
+         <input type="email" id="email" required placeholder="example@email.com">
+         <label for="number" id="number-label">
+          Age:</lable>
+         <input type="number" id="number" min="16" max="100" placeholder="20">
+
+         <label for="dropdown">Select your current status</label>
+        <select id="dropdown">
+           <option value="student">Student</option>
+           <option value="jobholder">Jobholder</option>
+           <option value="businessman">Business Man</option>
+           <option value="other">Other</option>
+        </select>
+        <fieldset>
+          <legend>How did you came to know this survey</legend>
+          <input type="radio" id="intrnt" value="intrnt" name="helios">
+          <lable for="intrnt">Internet</label>
+          <input type="radio" id="recom" value="recom" name="helios">
+          <label for="recom">Recommendation</label>
+        </fieldset>
+        <fieldset>
+          <legend>Which jobs are you currently interested in?</legend>
+          <input type="checkbox" value="data-analyst" id="dataanalyst">
+          <label for="dataanalyst">Data Analyst </label>
+
+          <input type="checkbox" value="automationxpert" id="automation">
+          <label for="automation">Automation Expert </label>
+          <input type="checkbox" value="graphics-designer" id="graphics-designer">
+          <label for="graphics-designer">Graphics Designer </label>
+          <input type="checkbox" value="cybersecurityxpert" id="cybersecurity">
+          <label for="cybersecurity">CyberSecurity Expert</label>
+        </fieldset>
+        <textarea cols="10" rows="5"></textarea>
+
+        <button type="submit" id="submit">Submit</button>
+
+      </form>
+
+  </body>
+</html>
